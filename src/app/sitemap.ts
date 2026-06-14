@@ -3,6 +3,9 @@ import { getPublishedPosts } from "@/lib/posts";
 import { categories } from "@/lib/categories";
 import { site } from "@/lib/site";
 
+// Make sitemap dynamic since it depends on database
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPublishedPosts();
 
