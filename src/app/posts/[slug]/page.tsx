@@ -18,6 +18,9 @@ import { site } from "@/lib/site";
 import { ads } from "@/lib/ads";
 import { categories } from "@/lib/categories";
 
+// Make post pages dynamic since they depend on database
+export const dynamic = "force-dynamic";
+
 type Params = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

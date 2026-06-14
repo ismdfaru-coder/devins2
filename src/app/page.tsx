@@ -5,6 +5,9 @@ import { getPublishedPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
 import { categories } from "@/lib/categories";
 
+// Make homepage dynamic since it depends on database
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const posts = await getPublishedPosts();
   const [featured, ...rest] = posts;
