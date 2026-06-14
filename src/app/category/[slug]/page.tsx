@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostCard from "@/components/PostCard";
 import { getPublishedPostsByCategory } from "@/lib/posts";
-import { categories, categoryBySlug } from "@/lib/categories";
+import { categoryBySlug } from "@/lib/categories";
 import { site } from "@/lib/site";
 
-// Generate static params for all categories
-export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
-}
+// Make category pages fully dynamic (not statically generated)
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
